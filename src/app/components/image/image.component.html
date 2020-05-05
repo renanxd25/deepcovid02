@@ -1,0 +1,41 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+      <img class="brand-logo" src="assets/provisiorio.png">
+    </a>
+    <a class="nav-link" (click)="authService.SignOut()" style="color: Tomato;">
+      <i class="fas fa-sign-out-alt"></i>Sair
+    </a>
+  </nav>
+  
+  <!-- Sidebar Navegação -->
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+            <div class="infotxt">*Clique no botão ESCOLHE IMAGEM para fazer o upload do arquivo de Raio-x para ser verificado</div>
+            <div class="infotxt">*Em Seguida Clique no botão VERIFICAR para receber o diagnostico percentual de COVID-19 do paciente.</div>
+        </div>
+      </nav>
+  
+  
+      <!-- Main content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="formImg">
+  
+          <form [formGroup]="uploadForm" (ngSubmit)="submit()">
+            <!-- Select File -->
+            <input type="file" accept="image/*" (change)="showPreview($event)" />
+          
+            <!-- Image Preview -->
+            <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+              <img [src]="imageURL" [alt]="uploadForm.value.name">
+            </div>
+          </form>
+        </div>
+        <div class="formImgbtn">
+          <button mat-raised-button type="submit" routerLink='/image'>VERIFICAR</button>
+        </div>
+      </main>
+    </div>
+  </div>

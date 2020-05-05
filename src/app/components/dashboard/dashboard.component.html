@@ -1,0 +1,65 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+    <img class="brand-logo" src="assets/provisiorio.png" alt="Deep Covid Logo">
+  </a>
+  <a class="nav-link" (click)="authService.SignOut()" style="color: Tomato;">
+    <i class="fas fa-sign-out-alt"></i>Sair
+  </a>
+</nav>
+
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+          <div class="infotxt">*Preencha os dados do usuario em cada caixa de texto do formulario para cadastra-lo em nosso banco de informações</div>
+          <div class="infotxt">*Em Seguida Clique no botão PROSSEGUIR para continuar com o processor de verificação</div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="inner-adjust">
+
+        <div class="pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Dados do Paciente</h1>
+        </div>
+        <section>
+          <!--<form method="POST" #frm="ngForm" (ngSubmit)="armazenar(frm)">-->
+            <div class="formGroup">
+              <h5>Nome</h5>
+              <input #nomeitem type="text" class="formControl" placeholder="Nome" >
+            </div>
+            <div class="formGroup">
+              <h5>CPF</h5>
+              <input  #cpfitem type="number" class="formControl" >
+            </div>
+            <div class="formGroup">
+              <h5>Sexo</h5>
+              <input  #sexoitem type="text" class="formControl" placeholder="Sexo" >
+            </div>
+            <div class="formGroup">
+              <h5>Idade</h5>
+              <input  #idadeitem type="number" class="formControl" placeholder="Idade" >
+            </div>
+            <div class="formGroup">
+              <h5>Possui doença crônica?</h5>
+              <h6> SIM:
+                <input #checkboxitem type="checkbox" >
+              </h6>
+            </div>
+            <div class="formGroup">
+              <h5>Se sim, qual doença?</h5>
+              <input  #observacaoitem type="text" class="formControl" placeholder="Doença" >
+            </div>
+            <div class="formGroup">
+              <button (click)="add(nomeitem.value, cpfitem.value, sexoitem.value, idadeitem.value, checkboxitem.value, observacaoitem.value)" mat-raised-button type="submit" routerLink='/image'>PROSSEGUIR</button>
+            </div>
+          <!--</form>-->
+        </section>
+        
+      </div>
+    </main>
+  </div>
+</div>
